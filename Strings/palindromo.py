@@ -1,4 +1,3 @@
-import re 
 import unidecode
 
 def palindromo(sentencia, inicio, longitud):
