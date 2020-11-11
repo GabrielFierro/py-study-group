@@ -11,7 +11,7 @@ def palindromo(sentencia, inicio, longitud):
         if sentencia[inicio] == sentencia[longitud]:
             exito = True
     else:
-        exito = palindromo(sentencia, inicio+1, longitud-1)
+        exito = palindromo(sentencia, inicio+1, longitud-1) # Invocación recursiva
         if sentencia[inicio] == sentencia[longitud]:
             exito = True
         else:
@@ -57,9 +57,6 @@ while(cont):
 
     longitud = len(resultado)-1 
     
-    print("palabra_original:", palabra_original)
-    print("palabra:", palabra)
-    print("resultado:", resultado)
     # Invocación de la función palindromo que verifica si la palabra ingresada es o no palindromo
     exito = palindromo(resultado, inicio, longitud)
 
