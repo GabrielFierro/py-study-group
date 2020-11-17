@@ -7,15 +7,20 @@ def palindromo(sentencia, inicio, longitud):
     # Zona de inicialización de variable
     exito = False
 
-    if inicio == longitud or inicio < longitud:
+    if inicio == longitud: 
         if sentencia[inicio] == sentencia[longitud]:
             exito = True
     else:
-        exito = palindromo(sentencia, inicio+1, longitud-1) # Invocación recursiva
-        if sentencia[inicio] == sentencia[longitud]:
-            exito = True
+        if inicio > longitud:
+            if sentencia[inicio] == sentencia[longitud]:
+                exito = True
         else:
-            exito = False
+            exito = palindromo(sentencia, inicio+1, longitud-1) # Invocación recursiva
+
+            if sentencia[inicio] == sentencia[longitud] and exito:
+                exito = True
+            else:
+                exito = False
 
     return exito
 
@@ -48,14 +53,17 @@ while(cont):
     # Zona de inicialización de variables dentro del bucle
     encontrado = False 
     inicio = 0
+
     print("Ingrese la palabra que desea verificar si es palíndromo o no")
     palabra_original = input()
 
     palabra = (palabra_original.replace(" ","")).lower()  #Le quito los espacios y transformo los caracteres a minúsculos
-    
+
     resultado = unidecode.unidecode(palabra) # Utilizo la librería unidecode para sacar los acentos de las vocales
 
     longitud = len(resultado)-1 
+
+    print("Longitud:",longitud)
     
     # Invocación de la función palindromo que verifica si la palabra ingresada es o no palindromo
     exito = palindromo(resultado, inicio, longitud)
