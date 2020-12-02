@@ -12,6 +12,18 @@ def verificar_secuencia(secuencia_fin):
     
     return exito
 
+def verificarCaracteres(cadena):
+    # Función que..
+    #
+    exito = True
+    i = 0
+    while exito: 
+        if cadena[i].isalpha():
+            i = i + 1
+        else:
+            exito = False
+
+    return exito
 
 print("Ingrese la secuencia que desea verificar")
 
@@ -27,9 +39,11 @@ secuencia_final = secuencia_gen[longitud_menor:longitud]
 
 if secuencia_inicial == "AUG":
     es_secuencia = verificar_secuencia(secuencia_final)
-
-if es_secuencia:
-    print("Las secuencias de codones ingresadas son válidas")
+    print("Entro al primer if con es_secuencia",es_secuencia)
+    if es_secuencia:
+        print("Entro al segundo if")
+        exito = verificarCaracteres(secuencia_final)
+        if exito:
+            print("Es una cadena válida")
 else:
     print("Las secuencias de codones ingresadas no son válidas")
-
